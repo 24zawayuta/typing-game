@@ -12,6 +12,7 @@ var newcheck=0;
 var missmax=0;
 var leng="";//計算により生成される文字列の入力
 var rankleng=""
+var missfreqleng=""
 //キー状態管理変数の定義
 var KEYS = new Array(256);
 //キーの状態を false （押されていない）で初期化
@@ -105,7 +106,7 @@ function typeGame(){
 			    DD2 = new Date();
 				finSeconds = DD2.getSeconds();
 				for(var i=0;i<queNum;i++){
-					if(misschar[i]==1){
+					if(misschar[i]==1){//ここでミスのものをサーチ
 					 leng+=Alphabet[rand[i]]+',';
 					}
 				}
@@ -126,7 +127,7 @@ function typeGame(){
 		
     }
 	else{       
-         if(newcheck>0){
+         if(newcheck>0){//ミスのフラグを立てる
          misschar[count]=1;
         }
         newcheck++;
