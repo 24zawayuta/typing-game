@@ -45,6 +45,12 @@
   text-align: center;
   color:red;
 }
+#failcount{　　
+  margin: auto;
+  font-size: 40px;
+  text-align: center;
+  color:blue;
+}
 body {
   background-image: url('star.jpg');
   background-repeat: repeat-y;

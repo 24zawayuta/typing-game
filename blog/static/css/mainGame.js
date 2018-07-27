@@ -39,6 +39,9 @@ var Alphabet = new Array("a","b","c","d","e","f","g","h","i",
                          "j","k","l","m","n","o","p","q","r",
                          "s","t","u","v","w","x","y","z");//対応するアルファベット
 var misschar = new Array(0,0,0,0,0);
+var misscount = new Array(0,0,0,0,0,0,0,0,0,
+                        0,0,0,0,0,0,0,0,0,
+                        0,0,0,0,0,0,0,0);
 
 
 /*--------------------------------------------*/
@@ -107,9 +110,22 @@ function typeGame(){
 				finSeconds = DD2.getSeconds();
 				for(var i=0;i<queNum;i++){
 					if(misschar[i]==1){//ここでミスのものをサーチ
+					 misscount[rand[i]]+=1;
 					 leng+=Alphabet[rand[i]]+',';
 					}
 				}
+				var mx=0;
+			    for(var i=0;i<26;i++){
+					if(misscount[i]>mx){
+						mx=misscount[i];
+					}
+				}
+				for(var i=0;i<26;i++){
+					if(misscount[i]==mx){
+						missfreqleng+=Alphabet[i]+",";
+					}
+				}
+				document.getElementById("failcount").innerHTML="あなたが最も頻繁に間違えるのは"+missfreqleng;
 				document.getElementById("success").innerHTML="";
 				document.getElementById("fail").innerHTML = 'マッチング率：'+(count*100/total).toFixed(0)+'%<br>間違えたキー:'+leng;
 				for(var i=0;i<queNum;i++){
@@ -121,6 +137,7 @@ function typeGame(){
 			numnum=0;
 		    leng="";
 			rankleng="";
+			missfreqleng="";
 			gameSet();
 			newcheck=0;
         }
