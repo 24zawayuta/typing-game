@@ -107,9 +107,20 @@ body {
     0% {opacity: 0}
     100% {opacity: 1}
 }
+/*
+@keyframes slideright {
+    0% {position:absolute; top:0px; left:0; }
+    100% {position:absolute;  top:0px; left:1000;}
+}
+@-webkit-keyframes slideright {
+    0% {position:absolute; top:0px; left:0; }
+    100% {position:absolute; top:0px; left:1000; }
+}
+
+*/
 .balloon5 {
-    animation: fadeIn 2s ease 0s 1 normal;
-    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+    animation: fadeIn 5s linear 0s 1 normal;
+    -webkit-animation: fadeIn 5s linear 0s 1 normal;
 }
 .balloon5 {
     width: 100%;

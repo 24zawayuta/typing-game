@@ -13,7 +13,7 @@ var missmax=0;
 var leng="";//計算により生成される文字列の入力
 var rankleng=""
 var missfreqleng=""
-//キー状態管理変数の定義
+//キー状態管理変数の定義ネット参照
 var KEYS = new Array(256);
 //キーの状態を false （押されていない）で初期化
 for(var i=0; i<KEYS.length; i++) {
@@ -25,17 +25,17 @@ window.onkeydown = function(e) {
     e.preventDefault();
     //キーを押された状態に更新
     KEYS[e.keyCode] = true;
-    typeGame();
+    gamestart();
 };
 //キーが離された時に呼び出される処理を指定
 window.onkeyup = function(e) {
     //キーを離された状態に更新
     KEYS[e.keyCode] = false;
 };
-var kCode = new Array(65,66,67,68,69,70,71,72,73,
+var fromask = new Array(65,66,67,68,69,70,71,72,73,
                         74,75,76,77,78,79,80,81,82,
                         83,84,85,86,87,88,89,90);//キーコード
-var Alphabet = new Array("a","b","c","d","e","f","g","h","i",
+var toalpha = new Array("a","b","c","d","e","f","g","h","i",
                          "j","k","l","m","n","o","p","q","r",
                          "s","t","u","v","w","x","y","z");//対応するアルファベット
 var misschar = new Array(0,0,0,0,0);
@@ -47,7 +47,7 @@ var misscount = new Array(0,0,0,0,0,0,0,0,0,
 /*--------------------------------------------*/
 
 //タイピングゲームの問題をセットする
-function gameSet(){
+function init(){
   //問題文とカウント数をクリアする
   for(var i=0; i<KEYS.length; i++) {
     KEYS[i] = false;
@@ -60,12 +60,11 @@ function gameSet(){
   }
   document.getElementById("frame").innerHTML = '\0';
 }
-
 //キー入力を受け取る
-function typeGame(){
+function gamestart(){
     //入力されたキーコードと、問題文のキーコードを比較
 	if(KEYS[32]){//空白受付
-		document.getElementById("frame").innerHTML = Alphabet[rand[numnum]];
+		document.getElementById("frame").innerHTML = toalpha[rand[numnum]];
 		total=-1;
 		DD = new Date();
         stHours = DD.getHours();
@@ -74,11 +73,11 @@ function typeGame(){
 		count=0;
 	}
 	total++;
-    if(KEYS[kCode[rand[count]]]&&KEYS[32]!=true){//一致したら
+    if(KEYS[fromask[rand[count]]]&&KEYS[32]!=true){//一致したら
         //カウント数を＋１にする
         count++;
         if (count < queNum){
-            document.getElementById("frame").innerHTML = Alphabet[rand[count]];
+            document.getElementById("frame").innerHTML = toalpha[rand[count]];
 			document.getElementById("success").innerHTML=""; 
         }else{
 			if(total==count){//成功時
@@ -112,7 +111,7 @@ function typeGame(){
 				for(var i=0;i<queNum;i++){
 					if(misschar[i]==1){//ここでミスのものをサーチ
 					 misscount[rand[i]]+=1;
-					 leng+=Alphabet[rand[i]]+',';
+					 leng+=toalpha[rand[i]]+',';
 					}
 				}
 				var mx=0;
@@ -123,7 +122,7 @@ function typeGame(){
 				}
 				for(var i=0;i<26;i++){
 					if(misscount[i]==mx){
-						missfreqleng+=Alphabet[i]+" ";
+						missfreqleng+=toalpha[i]+" ";
 					}
 				}
 				document.getElementById("failcount").innerHTML="あなたが最も頻繁に間違えるのは、"+missfreqleng;
@@ -139,7 +138,7 @@ function typeGame(){
 		    leng="";
 			rankleng="";
 			missfreqleng="";
-			gameSet();
+			init();
 			newcheck=0;
         }
 		
@@ -151,4 +150,4 @@ function typeGame(){
         newcheck++;
 	}
 }
-gameSet();
+init();
