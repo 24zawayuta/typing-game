@@ -7,6 +7,16 @@
 　　<link rel="stylesheet" type="text/css" media="screen,print" href="{% static 'css/style.css' %}" />
 　</head>
 　<body>
+  <div class="balloon5">
+  <div class="faceicon">
+  <div class="seika"><a href="" target="_blank"><img src="{% static 'css/sax.jpg' %}" width="100" height="100"></a></div>
+  </div>
+  <div class="chatting">
+    <div class="says">
+      <p>スペースをおしてスタート&#x1f3b7</p>
+    </div>
+  </div>
+</div>
    <div class="background"> 
     <div class="color"> 
     <div class="content"> 
@@ -15,14 +25,15 @@
 	</div>
 	</div>
 	<input type="button" class="button" id="restart" value="入力のリセット" onclick="gameSet()">
+	</input>
 	<div id ="rank"></div>
     <div id ="failcount"></div>
     <div id="frame">
 	</div>
-　　　<script type="text/javascript" src="{% static 'css/maingame.js' %}"></script>
-	<div id ="success">
+    <div id ="success">
 	</div>
 	<div id ="fail">
 	</div>
+　　　<script type="text/javascript" src="{% static 'css/maingame.js' %}"></script>
 　</body>
 </html>

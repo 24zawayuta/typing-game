@@ -79,6 +79,7 @@ function typeGame(){
         count++;
         if (count < queNum){
             document.getElementById("frame").innerHTML = Alphabet[rand[count]];
+			document.getElementById("success").innerHTML=""; 
         }else{
 			if(total==count){//成功時
 				successcount+=1;
@@ -98,11 +99,11 @@ function typeGame(){
 				}
 				for(var j=0;j<3;j++){
 					if(besttime[j]!=700){
-						rankleng+="Rank "+(Number(j)+Number(1))+":"+besttime[j]+";";
+						rankleng+="Rank "+(Number(j)+Number(1))+":"+besttime[j]+" ";
 					}
 				}
 				document.getElementById("rank").innerHTML=rankleng;
-				document.getElementById("success").innerHTML =successcount+"回目の成功!!<br>thistime:"+(finSeconds-stSeconds)+"<br><img src='static/css/success.jpg'>";
+				document.getElementById("success").innerHTML ="Congratulation!! thistime:"+(finSeconds-stSeconds)+"<br><img src='static/css/success.jpg'>";
 				document.getElementById("fail").innerHTML=""; 
 			}
 			else{//失敗時
@@ -122,10 +123,10 @@ function typeGame(){
 				}
 				for(var i=0;i<26;i++){
 					if(misscount[i]==mx){
-						missfreqleng+=Alphabet[i]+",";
+						missfreqleng+=Alphabet[i]+" ";
 					}
 				}
-				document.getElementById("failcount").innerHTML="あなたが最も頻繁に間違えるのは"+missfreqleng;
+				document.getElementById("failcount").innerHTML="あなたが最も頻繁に間違えるのは、"+missfreqleng;
 				document.getElementById("success").innerHTML="";
 				document.getElementById("fail").innerHTML = 'マッチング率：'+(count*100/total).toFixed(0)+'%<br>間違えたキー:'+leng;
 				for(var i=0;i<queNum;i++){

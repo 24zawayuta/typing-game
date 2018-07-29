@@ -20,6 +20,7 @@
   margin: auto;
   font-size: 50px;
   text-align: center;
+  color: #FFFF99;
 }
 #fail{
   font-family: 'Comic Sans MS';
@@ -27,11 +28,13 @@
   width: 600px;
   height: 80px;
   margin: auto;
-  font-size: 20px;
+  font-size: 50px;
   text-align: center;
-  color:blue;
+  color:#CCFFFF;
 }
 #success{
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
   font-family: 'Comic Sans MS';
   position: center;　　
   margin: auto;
@@ -49,7 +52,7 @@
   margin: auto;
   font-size: 40px;
   text-align: center;
-  color:blue;
+  color:#CCFFFF;
 }
 body {
   background-image: url('star.jpg');
@@ -69,7 +72,89 @@ body {
  border-radius: 20px;
  font-size: 50px;
 }
+
 .button{
-	background-color: black;
-	color:white;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #AAAAAA;/*ボタン色*/
+    color: #444444;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #627295;
+    border-radius: 3px;/*角の丸み*/
+    font-weight: bold;
+    text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
+  }
+.button:active{/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
 }
+
+.seika {
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+.balloon5 {
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+.balloon5 {
+    width: 100%;
+    margin: 1.5em 0;
+    overflow: hidden;
+}
+
+.balloon5 .faceicon {
+    float: left;
+    margin-right: -90px;
+    width: 80px;
+}
+
+.balloon5 .faceicon img{
+    width: 100%;
+    height: auto;
+    border: solid 3px #d7ebfe;
+    border-radius: 50%;
+}
+
+.balloon5 .chatting {
+    width: 100%;
+}
+
+.says {
+    display: inline-block;
+    position: relative; 
+    margin: 5px 0 0 105px;
+    padding: 17px 13px;
+    border-radius: 12px;
+    background: #d7ebfe;
+}
+
+.says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px; 
+    left: -24px;
+    border: 12px solid transparent;
+    border-right: 12px solid #d7ebfe;
+}
+
+.says p {
+    margin: 0;
+    padding: 0;
+}
+  
