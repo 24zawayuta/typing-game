@@ -1,6 +1,6 @@
 var rand = new Array();
 var count = 0;
-var queNum = 5;
+var queNum = 10;
 var numnum = 0;
 var total=-1;
 var sttime=0;
@@ -111,7 +111,7 @@ function gamestart(){
 				for(var i=0;i<queNum;i++){
 					if(misschar[i]==1){//ここでミスのものをサーチ
 					 misscount[rand[i]]+=1;
-					 leng+=toalpha[rand[i]]+',';
+					 leng+=toalpha[rand[i]]+' ';
 					}
 				}
 				var mx=0;
@@ -141,7 +141,6 @@ function gamestart(){
 			init();
 			newcheck=0;
         }
-		
     }
 	else{       
          if(newcheck>0){//ミスのフラグを立てる
