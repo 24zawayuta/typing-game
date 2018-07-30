@@ -1,6 +1,7 @@
 # typing-game
 Name
 ====
+西澤
 
 Overview
 
