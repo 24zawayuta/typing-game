@@ -5,20 +5,6 @@ Name
 堀田　拓哉
 ## Demo
 http://24zawayuta.pythonanywhere.com/ なぜか動作しません　
-## VS. 
-
-## Requirement
-
-## Usage
-
-## Install
-
-## Contribution
-
-## Licence
-
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
-
-## Author
-
-[tcnksm](https://github.com/tcnksm)
+## How to use
+runserver後でhttp://127.0.0.1:8000/
+スペースでゲームスタート
